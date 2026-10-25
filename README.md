@@ -6,10 +6,14 @@ A Claude Code skill that makes skills from `npx skills` available in Claude Code
 
 ## Install (one time on each Mac)
 
+Requirements: macOS, Git, and Claude Code.
+
 ```sh
-git clone https://github.com/larsbogerd/sync-agent-skills.git ~/Localdocs/dev/sync-agent-skills
-sh ~/Localdocs/dev/sync-agent-skills/install.sh
+git clone https://github.com/larsbogerd/sync-agent-skills.git ~/sync-agent-skills
+sh ~/sync-agent-skills/install.sh
 ```
+
+You can clone the repository to a different folder. In that case, change the path in the second command. `install.sh` finds its own location.
 
 `install.sh` puts a link to `skills/sync-agent-skills` in `~/.claude/skills/`. Then it runs the first sync.
 
