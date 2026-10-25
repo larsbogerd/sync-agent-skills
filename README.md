@@ -7,7 +7,7 @@ A Claude Code skill that makes skills installed with `npx skills` usable in Clau
 ## Install (once per Mac)
 
 ```sh
-git clone <repo-url> ~/Localdocs/dev/sync-agent-skills
+git clone https://github.com/larsbogerd/sync-agent-skills.git ~/Localdocs/dev/sync-agent-skills
 sh ~/Localdocs/dev/sync-agent-skills/install.sh
 ```
 
