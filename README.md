@@ -18,7 +18,7 @@ sh ~/Localdocs/dev/sync-agent-skills/install.sh
 After `npx skills add <package>` or `npx skills remove <name>`, tell Claude "sync skills" or run `/sync-agent-skills`. Without Claude:
 
 ```sh
-sh ~/.claude/skills/sync-agent-skills/sync.sh
+sh ~/.claude/skills/sync-agent-skills/scripts/sync.sh
 ```
 
 Output, one line per skill:

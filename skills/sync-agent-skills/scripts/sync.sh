@@ -1,7 +1,7 @@
 #!/bin/sh
 # Link every skill in ~/.agents/skills into ~/.claude/skills and remove dead links.
-src="$HOME/.agents/skills"
-dst="$HOME/.claude/skills"
+src="${SKILLS_SRC:-$HOME/.agents/skills}"
+dst="${SKILLS_DST:-$HOME/.claude/skills}"
 mkdir -p "$dst"
 
 for d in "$src"/*/; do

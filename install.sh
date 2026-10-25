@@ -14,4 +14,4 @@ fi
 ln -sfn "$skill" "$link"
 echo "installed $link -> $skill"
 
-sh "$skill/sync.sh"
+sh "$skill/scripts/sync.sh"
