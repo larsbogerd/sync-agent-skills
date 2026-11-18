@@ -1,11 +1,13 @@
 ---
 name: sync-agent-skills
-description: Make skills installed with the `npx skills` CLI show up in Claude Code by symlinking each one from ~/.agents/skills into ~/.claude/skills, and clean up links to skills that were removed. Use this whenever a skill was just installed, updated or removed with `npx skills` (including right after the find-skills skill installs one), when the user says a skill they installed is missing, not showing up, or not in the skill list, when ~/.agents/skills is mentioned, or when the user asks to sync, link or refresh their skills. Not for finding or choosing new skills to install; that is find-skills.
+description: Link skills from ~/.agents/skills into ~/.claude/skills so that they show up in Claude Code, and clean up links to skills that were removed. `npx skills add` already makes this link when Claude Code is one of the selected agents, so this is for skills that have no link - skills put in ~/.agents/skills by hand (written, copied or cloned with Git) and skills installed with `npx skills` for other agents only. Use this whenever the user says a skill is missing, not showing up, or not in the skill list, when a skill was added to or removed from ~/.agents/skills, when ~/.agents/skills is mentioned, or when the user asks to sync, link or refresh their skills. Not for finding or choosing new skills to install; that is find-skills.
 ---
 
 # Sync agent skills
 
-`npx skills` installs into `~/.agents/skills/`, a shared folder for many coding agents. Claude Code only scans `~/.claude/skills/`, so a freshly installed skill stays invisible until it is linked there. Links (not copies) are used so that `npx skills update` changes reach Claude Code with no extra step.
+`~/.agents/skills/` is a shared folder for many coding agents. Claude Code only scans `~/.claude/skills/`, so a skill in the shared folder stays invisible until it is linked there.
+
+`npx skills add` makes that link itself when Claude Code is one of the selected agents. This skill covers the skills that have no link: ones the user put in `~/.agents/skills/` by hand (written, copied or cloned with Git), and ones installed with `npx skills` for other agents only. Links (not copies) are used so that changes to a skill reach Claude Code with no extra step.
 
 ## Run the sync
 
