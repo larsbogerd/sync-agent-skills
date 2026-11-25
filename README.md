@@ -39,7 +39,7 @@ To run the sync without Claude:
 sh ~/.claude/skills/sync-agent-skills/scripts/sync.sh
 ```
 
-The script writes one line for each skill:
+The script writes one line for each skill. A skill is a folder that contains a `SKILL.md` file. The script ignores other folders.
 
 | Status    | Meaning                                                                       |
 |-----------|-------------------------------------------------------------------------------|
@@ -47,6 +47,7 @@ The script writes one line for each skill:
 | `relink`  | The link was not the absolute path to the skill in `~/.agents/skills/`. The script changed it. |
 | `ok`      | The link is correct. The script did not change it.                            |
 | `skip`    | A real folder with that name is in `~/.claude/skills/`. The script did not change it. |
+| `plugin`  | An installed Claude Code plugin has a skill with that name. The script did not make a link, and removed the link if there was one. |
 | `removed` | The skill is no longer in `~/.agents/skills/`. The script removed its link.   |
 
 Claude Code monitors `~/.claude/skills/`. Changes usually appear in the running session. If a change does not appear, run `/reload-skills` or start a new session.

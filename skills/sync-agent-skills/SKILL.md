@@ -15,15 +15,16 @@ description: Link skills from ~/.agents/skills into ~/.claude/skills so that the
 sh ~/.claude/skills/sync-agent-skills/scripts/sync.sh
 ```
 
-The script is safe to run any number of times. It prints one line per skill:
+The script is safe to run any number of times. It only looks at folders that contain a `SKILL.md` and ignores other folders (such as sync folders). It prints one line per skill:
 
 - `linked`: new link created
 - `relink`: link pointed somewhere else and now points to `~/.agents/skills`
 - `ok`: already linked, nothing to do
 - `skip`: a real folder (not a link) with that name is already in `~/.claude/skills/`; the script leaves it alone because it is probably a skill the user made or installed another way
+- `plugin`: an installed Claude Code plugin already has a skill with this name (in its `skills/` folder); the script does not link it, and removes an existing link to it, so the skill does not show up twice. Claude Code uses the plugin version, which the plugin updates. The copy in `~/.agents/skills/` stays for other agents
 - `removed`: the skill is gone from `~/.agents/skills/`, so its dead link was deleted
 
-Give the user a short summary of what changed: the skills that were linked or removed, and any `skip` lines, because those mean two different skills have the same name. Don't list all the `ok` lines.
+Give the user a short summary of what changed: the skills that were linked or removed, any `plugin` lines, and any `skip` lines, because those mean two different skills have the same name. Don't list all the `ok` lines.
 
 ## After the sync
 
